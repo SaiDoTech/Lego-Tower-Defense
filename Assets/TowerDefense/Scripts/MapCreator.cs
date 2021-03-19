@@ -17,9 +17,12 @@ public class MapCreator : MonoBehaviour
     public GameObject FinishObject;
     public GameObject GroundObject;
 
+    public GameObject CellObject;
+
     void Start()
     {
-        
+        InitCells();
+        //DrawMap();
     }
 
     // Update is called once per frame
@@ -41,15 +44,20 @@ public class MapCreator : MonoBehaviour
 
     private void InitCells()
     {
-        for (int i=0; i < MapHeight; i++)
+        for (int i=0; i < map.GetLength(0); i++)
         {
-            for (int j=0; j < MapWidth; j++)
+            for (int j=0; j < map.GetLength(1); j++)
             {
-                map[i, j].X = j;
-                map[i, j].Y = i;
-                map[i, j].Value = null;
-                map[i, j].WasVisited = false;
-                map[i, j].NeedYRotation = 0;
+                var temp = Instantiate(CellObject, new Vector3(i*6.4f, 0, j*6.4f), Quaternion.identity);
+                temp.transform.SetParent(gameObject.transform);
+                temp.name = $"Cell: {i}x{j}";
+
+                var cell = temp.GetComponent<Cell>();
+                cell.RowNum = i;
+                cell.ColumnNum = j;
+                cell.WasVisited = false;
+                cell.Value = null;
+                cell.NeedYRotation = 0;
             }
         }
     }
@@ -58,7 +66,21 @@ public class MapCreator : MonoBehaviour
     {
         foreach (var cell in map)
         {
-            Destroy(cell);
+            Destroy(cell.gameObject);
+        }
+    }
+
+    private void DrawMap()
+    {
+        for (int i = 0; i < map.GetLength(0); i++)
+        {
+            for (int j = 0; j < map.GetLength(1); j++)
+            {
+                if (map[i, j].Value == null)
+                {
+
+                }
+            }
         }
     }
 }

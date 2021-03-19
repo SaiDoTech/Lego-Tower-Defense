@@ -2,10 +2,10 @@
 
 public class Cell : MonoBehaviour
 {
-    // Coordinates within the x grid
-    public int X { get; set; }
-    // Coordinates within the y grid
-    public int Y { get; set; }
+    // Coordinates within the row in grid
+    public int RowNum { get; set; }
+    // Coordinates within the column in grid
+    public int ColumnNum { get; set; }
     // Value inside the grid
     public GameObject Value { get; set; }
     // Has the cage been visited?
