@@ -244,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274172218}
   - component: {fileID: 1274172219}
+  - component: {fileID: 1274172220}
   m_Layer: 0
   m_Name: MapParent
   m_TagString: Untagged
@@ -277,13 +278,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0f4ee404d286b47a8fa63cadb07ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnObject: {fileID: 0}
-  RoadObject: {fileID: 0}
-  StartObject: {fileID: 0}
-  FinishObject: {fileID: 0}
-  GroundObject: {fileID: 0}
+  TurnObject: {fileID: 3702553104520511139, guid: e929cc564502c0144bbefdd5d3c51253,
+    type: 3}
+  RoadObject: {fileID: 3372370610502767505, guid: db0fa265173f7d9479a4eb284b93e655,
+    type: 3}
+  StartObject: {fileID: 8565552900612299523, guid: 52b35f16780b0d040985e4770a42e968,
+    type: 3}
+  FinishObject: {fileID: 6213186805946410607, guid: eb239a7f5e61f0e4fb75520d3bac5398,
+    type: 3}
+  GroundObject: {fileID: 7225961365740538001, guid: 804b12002c66fd04ab4e7da97cacd912,
+    type: 3}
   CellObject: {fileID: 2754629323895914855, guid: 9f10070c6371ceb4e90c53fd91ff9d57,
     type: 3}
+--- !u!114 &1274172220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274172217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88d9454b36e6374ca74260410bee8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337974107
 GameObject:
   m_ObjectHideFlags: 0

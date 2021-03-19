@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MapCreator : MonoBehaviour
 {
-    public const int MapHeight = 10;
-    public const int MapWidth = 10;
+    public const int MapHeight = 8;
+    public const int MapWidth = 8;
 
-    private Cell[,] map = new Cell[MapHeight, MapWidth];
-
+    private CellObject[,] map = new CellObject[MapHeight, MapWidth];
+    private PathConstructor pathConstructor;
 
     [Header("Path Objects")]
     public GameObject TurnObject;
@@ -21,8 +21,11 @@ public class MapCreator : MonoBehaviour
 
     void Start()
     {
+        pathConstructor = gameObject.GetComponent<PathConstructor>();
+
         InitCells();
-        //DrawMap();
+        pathConstructor.GetPath(map, 20);
+        DrawMap();
     }
 
     // Update is called once per frame
@@ -52,12 +55,14 @@ public class MapCreator : MonoBehaviour
                 temp.transform.SetParent(gameObject.transform);
                 temp.name = $"Cell: {i}x{j}";
 
-                var cell = temp.GetComponent<Cell>();
+                var cell = temp.GetComponent<CellObject>();
                 cell.RowNum = i;
                 cell.ColumnNum = j;
                 cell.WasVisited = false;
                 cell.Value = null;
                 cell.NeedYRotation = 0;
+
+                map[i, j] = cell;
             }
         }
     }
@@ -78,7 +83,13 @@ public class MapCreator : MonoBehaviour
             {
                 if (map[i, j].Value == null)
                 {
-
+                    var temp = Instantiate(GroundObject, new Vector3(i*6.4f, 0, j*6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
+                    temp.transform.SetParent(map[i, j].transform);
+                }
+                else
+                {
+                    var temp = Instantiate(map[i, j].Value, new Vector3(i * 6.4f, 0, j * 6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
+                    temp.transform.SetParent(map[i, j].transform);
                 }
             }
         }
