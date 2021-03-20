@@ -6,7 +6,7 @@ public class PathConstructor : MonoBehaviour
 {
     private MapCreator mapCreator;
 
-    private void Start()
+    private void Awake()
     {
         mapCreator = gameObject.GetComponent<MapCreator>();
     }

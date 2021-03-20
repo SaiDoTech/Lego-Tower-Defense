@@ -197,8 +197,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079620492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.3487926, y: -0.6157517, z: 0.34990644, w: 0.613807}
+  m_LocalPosition: {x: 49.422653, y: 41.248707, z: 21.07794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0f4ee404d286b47a8fa63cadb07ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathConstructor: {fileID: 1274172220}
   TurnObject: {fileID: 3702553104520511139, guid: e929cc564502c0144bbefdd5d3c51253,
     type: 3}
   RoadObject: {fileID: 3372370610502767505, guid: db0fa265173f7d9479a4eb284b93e655,

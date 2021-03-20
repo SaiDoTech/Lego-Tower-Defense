@@ -8,9 +8,9 @@ public class MapCreator : MonoBehaviour
     public const int MapWidth = 8;
 
     private CellObject[,] map = new CellObject[MapHeight, MapWidth];
-    private PathConstructor pathConstructor;
 
     [Header("Path Objects")]
+    public PathConstructor pathConstructor;
     public GameObject TurnObject;
     public GameObject RoadObject;
     public GameObject StartObject;
@@ -21,8 +21,6 @@ public class MapCreator : MonoBehaviour
 
     void Start()
     {
-        pathConstructor = gameObject.GetComponent<PathConstructor>();
-
         InitCells();
         pathConstructor.GetPath(map, 20);
         DrawMap();
