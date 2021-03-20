@@ -5,21 +5,27 @@ using UnityEngine;
 public class PathConstructor : MonoBehaviour
 {
     private MapCreator mapCreator;
+    public const int TryFindCount = 20;
 
     private void Awake()
     {
         mapCreator = gameObject.GetComponent<MapCreator>();
     }
 
-    public void GetPath(CellObject[,] cells, int pathLength)
+    public int GetPath(CellObject[,] cells)
     {
         List<CellObject> pathList = new List<CellObject>();
+        int pathLength = 0;
 
         MakeStartPoint(cells, mapCreator.StartObject, pathList);
-        CreatePath(cells, pathList, pathLength);
+        pathLength++;
+
+        pathLength += CreatePath(cells, pathList, TryFindCount);
         MakeEndPoint(cells, mapCreator.FinishObject, pathList);
         CorrectPath(cells, pathList);
         CorrectPoints(cells, pathList);
+
+        return pathLength;
     }
 
     private void MakeStartPoint(CellObject[,] cells, GameObject startObject, List<CellObject> pathList)
@@ -35,13 +41,14 @@ public class PathConstructor : MonoBehaviour
         pathList.Add(start);
     }
 
-    private void CreatePath(CellObject[,] cells, List<CellObject> pathList, int pathLength)
+    private int CreatePath(CellObject[,] cells, List<CellObject> pathList, int tryFindCount)
     {
         System.Random rnd = new System.Random();
         CellObject currentCell = pathList[0];
         List<CellObject> neighbors = new List<CellObject>();
+        int length = 0;
 
-        for (var i = 0; i < pathLength; i++)
+        for (var i = 0; i < tryFindCount; i++)
         {
             GetNeighbors(neighbors, currentCell, cells);
             if (neighbors.Count != 0)
@@ -68,9 +75,11 @@ public class PathConstructor : MonoBehaviour
 
                 pathList.Add(midCell);
                 pathList.Add(currentCell);
+                length += 2;
             }
             neighbors.Clear();
         }
+        return length;
     }
     private void GetNeighbors(List<CellObject> neighbors, CellObject currentCell, CellObject[,] cells)
     {

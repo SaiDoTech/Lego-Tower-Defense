@@ -6,6 +6,7 @@ public class MapCreator : MonoBehaviour
 {
     public const int MapHeight = 8;
     public const int MapWidth = 8;
+    public const int MinPathLength = 16;
 
     private CellObject[,] map = new CellObject[MapHeight, MapWidth];
 
@@ -21,9 +22,7 @@ public class MapCreator : MonoBehaviour
 
     void Start()
     {
-        InitCells();
-        pathConstructor.GetPath(map, 20);
-        DrawMap();
+        CreateNewMap();
     }
 
     // Update is called once per frame
@@ -40,7 +39,17 @@ public class MapCreator : MonoBehaviour
             DestroyCells();
         }
 
-        InitCells();
+        // Create path 
+        int currentLength = 0;
+        while (currentLength < MinPathLength)
+        {
+            InitCells();
+            currentLength = pathConstructor.GetPath(map);
+        }
+
+        // Create environment
+
+        DrawMap();
     }
 
     private void InitCells()
