@@ -202,7 +202,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 167715285}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1008342262}
+        m_MethodName: OnFinishGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &167715285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +492,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 798989036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1008342262}
+        m_MethodName: OnPause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &798989036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,6 +872,7 @@ MonoBehaviour:
   GenerateNewMapBt: {fileID: 1441281271}
   StartGameBt: {fileID: 820134057}
   FinishGameBt: {fileID: 167715284}
+  PauseBt: {fileID: 798989035}
 --- !u!1 &1079620492
 GameObject:
   m_ObjectHideFlags: 0

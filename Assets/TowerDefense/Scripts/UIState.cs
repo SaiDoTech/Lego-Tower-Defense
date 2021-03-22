@@ -8,6 +8,7 @@ public class UIState : MonoBehaviour
     public Button GenerateNewMapBt;
     public Button StartGameBt;
     public Button FinishGameBt;
+    public Button PauseBt;
 
     private void Start()
     {
@@ -28,5 +29,33 @@ public class UIState : MonoBehaviour
         }
 
         gameState.StartGame();
+    }
+
+    public void OnFinishGame()
+    {
+        if (gameState.IsGameStarted)
+        {
+            FinishGameBt.interactable = false;
+            StartGameBt.interactable = true;
+            GenerateNewMapBt.interactable = true;
+        }
+
+        gameState.FinishGame();
+    }
+
+    public void OnPause()
+    {
+        if ((gameState.IsGameStarted) && (!gameState.IsGameOnPause))
+        {
+
+
+            gameState.SetGamePause();
+        }
+        else if ((gameState.IsGameStarted) && (gameState.IsGameOnPause))
+        {
+
+
+            gameState.EndGamePause();
+        }
     }
 }

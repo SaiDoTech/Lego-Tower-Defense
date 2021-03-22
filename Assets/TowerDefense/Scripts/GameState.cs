@@ -22,6 +22,16 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void FinishGame()
+    {
+        if (IsGameStarted)
+        {
+
+            IsGameStarted = false;
+            IsGameOnPause = false;
+        }
+    }
+
     public void StartGame()
     {
         if (!IsGameStarted)
