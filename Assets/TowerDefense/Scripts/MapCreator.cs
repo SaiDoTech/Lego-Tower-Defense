@@ -18,6 +18,10 @@ public class MapCreator : MonoBehaviour
     public GameObject FinishObject;
     public GameObject GroundObject;
 
+    [Header("Environment Objects")]
+    public EnvironmentConstructor environmentConstructor;
+    public GameObject[] EnvironmentObjects;
+
     public GameObject CellObject;
 
     void Start()
@@ -48,6 +52,7 @@ public class MapCreator : MonoBehaviour
         }
 
         // Create environment
+        environmentConstructor.CreateEnvironment(EnvironmentObjects, map, currentLength);
 
         DrawMap();
     }
