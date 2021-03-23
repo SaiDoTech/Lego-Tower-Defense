@@ -1009,7 +1009,7 @@ MonoBehaviour:
     type: 3}
   StartObject: {fileID: 8565552900612299523, guid: 52b35f16780b0d040985e4770a42e968,
     type: 3}
-  FinishObject: {fileID: 6213186805946410607, guid: eb239a7f5e61f0e4fb75520d3bac5398,
+  FinishObject: {fileID: 1402154943791455072, guid: a988087e2d4116b4e9ab3b5a76eda3c1,
     type: 3}
   GroundObject: {fileID: 7225961365740538001, guid: 804b12002c66fd04ab4e7da97cacd912,
     type: 3}
@@ -1262,7 +1262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337974107}
   m_LocalRotation: {x: 0.34210846, y: -0.24204198, z: 0.09166767, w: 0.9033131}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 25.5, y: -0.3, z: -44.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
