@@ -8,7 +8,10 @@ public class MapCreator : MonoBehaviour
     public const int MapWidth = 8;
     public const int MinPathLength = 16;
 
+    // Map array
     private CellObject[,] map = new CellObject[MapHeight, MapWidth];
+    // Path controll point
+    public static List<Transform> PathPoints = new List<Transform>();
 
     [Header("Path Objects")]
     public PathConstructor pathConstructor;
@@ -53,6 +56,9 @@ public class MapCreator : MonoBehaviour
 
         // Create environment
         environmentConstructor.CreateEnvironment(EnvironmentObjects, map, currentLength);
+
+        // Get path control points
+        PathPoints = pathConstructor.GetPathPoints();
 
         DrawMap();
     }

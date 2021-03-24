@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    public bool IsGameStarted { get; private set; }
-    public bool IsGameOnPause { get; private set; }
+    public static bool IsGameStarted;
+    public static bool IsGameOnPause;
 
     private static MapCreator mapCreator;
 

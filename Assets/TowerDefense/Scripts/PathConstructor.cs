@@ -5,6 +5,8 @@ using UnityEngine;
 public class PathConstructor : MonoBehaviour
 {
     private MapCreator mapCreator;
+    private List<CellObject> pathList;
+
     public const int TryFindCount = 20;
 
     private void Awake()
@@ -12,9 +14,27 @@ public class PathConstructor : MonoBehaviour
         mapCreator = gameObject.GetComponent<MapCreator>();
     }
 
+    public List<Transform> GetPathPoints()
+    {
+        List<Transform> result = new List<Transform>();
+
+        if (pathList.Count != 0)
+        {
+            foreach (var pathPoint in pathList)
+            {
+                if (pathPoint.Value != mapCreator.RoadObject)
+                {
+                    result.Add(pathPoint.transform);
+                }
+            }
+        }
+
+        return result;
+    }
+
     public int GetPath(CellObject[,] cells)
     {
-        List<CellObject> pathList = new List<CellObject>();
+        pathList = new List<CellObject>();
         int pathLength = 0;
 
         MakeStartPoint(cells, mapCreator.StartObject, pathList);

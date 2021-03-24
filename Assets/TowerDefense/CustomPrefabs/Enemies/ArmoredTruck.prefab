@@ -48638,6 +48638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2359603744925836955}
+  - component: {fileID: -7121442550246789614}
   m_Layer: 0
   m_Name: ArmoredTruck
   m_TagString: Enemy
@@ -48660,6 +48661,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7121442550246789614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405240238124212574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16af7f06700bdb249897247d572b8af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 7
+  HealthPoints: 3
 --- !u!1 &8409666187472347670
 GameObject:
   m_ObjectHideFlags: 0
@@ -53532,9 +53547,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec0a645588d04d8bb0ca99f70ffa743, type: 3}
---- !u!114 &8727141758343144221 stripped
+--- !u!114 &4029813583320030712 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5758243580283971158, guid: dec0a645588d04d8bb0ca99f70ffa743,
+  m_CorrespondingSourceObject: {fileID: 79001206171572403, guid: dec0a645588d04d8bb0ca99f70ffa743,
     type: 3}
   m_PrefabInstance: {fileID: 3959910058686055755}
   m_PrefabAsset: {fileID: 0}
@@ -53550,9 +53565,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3959910058686055755}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4029813583320030712 stripped
+--- !u!114 &8727141758343144221 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 79001206171572403, guid: dec0a645588d04d8bb0ca99f70ffa743,
+  m_CorrespondingSourceObject: {fileID: 5758243580283971158, guid: dec0a645588d04d8bb0ca99f70ffa743,
     type: 3}
   m_PrefabInstance: {fileID: 3959910058686055755}
   m_PrefabAsset: {fileID: 0}

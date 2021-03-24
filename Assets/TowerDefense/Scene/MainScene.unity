@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 1274172220}
   - component: {fileID: 1274172221}
   - component: {fileID: 1274172222}
+  - component: {fileID: 1274172223}
   m_Layer: 0
   m_Name: MapParent
   m_TagString: Untagged
@@ -1057,6 +1058,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec5fd5b9d4a13941960fe5febcb8ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1274172223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274172217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3e1f5e63341114bb10229fd5eca161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 8075459374910910414, guid: cc16a7501f5c9aa42a64cf97ad93f05e, type: 3}
+  - {fileID: 8405240238124212574, guid: 8351ad0695c904d48b1de646d2f93aab, type: 3}
+  - {fileID: 814255926500562723, guid: 5179eb97d0ee02e4b926888617f64487, type: 3}
+  - {fileID: 2729991341468102641, guid: a90ef89d84e02cc4f8b1694edd02a318, type: 3}
+  - {fileID: 1504969847568705918, guid: 2ee5512833837fa429664a5fdde589ad, type: 3}
+  - {fileID: 8834917097930855561, guid: 47d76915647b4e24ba053ca7c70014c2, type: 3}
+  timeBetweenWaves: 7
+  timeBetweenEnemy: 2
+  countDown: 2
 --- !u!1 &1274654061
 GameObject:
   m_ObjectHideFlags: 0

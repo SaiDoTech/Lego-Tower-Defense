@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class UIState : MonoBehaviour
 {
     public GameState gameState;
-
     public Button GenerateNewMapBt;
     public Button StartGameBt;
     public Button FinishGameBt;
@@ -22,9 +21,10 @@ public class UIState : MonoBehaviour
 
     public void OnStartGame()
     {
-        if (!gameState.IsGameStarted)
+        if (!GameState.IsGameStarted)
         {
             GenerateNewMapBt.interactable = false;
+            StartGameBt.interactable = false;
             FinishGameBt.interactable = true;
         }
 
@@ -33,7 +33,7 @@ public class UIState : MonoBehaviour
 
     public void OnFinishGame()
     {
-        if (gameState.IsGameStarted)
+        if (GameState.IsGameStarted)
         {
             FinishGameBt.interactable = false;
             StartGameBt.interactable = true;
@@ -45,13 +45,13 @@ public class UIState : MonoBehaviour
 
     public void OnPause()
     {
-        if ((gameState.IsGameStarted) && (!gameState.IsGameOnPause))
+        if ((GameState.IsGameStarted) && (!GameState.IsGameOnPause))
         {
 
 
             gameState.SetGamePause();
         }
-        else if ((gameState.IsGameStarted) && (gameState.IsGameOnPause))
+        else if ((GameState.IsGameStarted) && (GameState.IsGameOnPause))
         {
 
 
