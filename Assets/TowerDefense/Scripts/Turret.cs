@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, ICanBePlaced
 {
-	public bool IsPlaced { get; set; }
+	// IF THIS FIELD IS PRIVATE - DOESN'T WORK
+	public bool wasPlaced;
 
 	public float Range = 14.0f;
 	public float TurnSpeed = 10.0f;
@@ -28,7 +29,7 @@ public class Turret : MonoBehaviour
 
 	private void Update()
 	{
-		if ((!GameState.IsGameOnPause) && (IsPlaced))
+		if ((!GameState.IsGameOnPause) && (wasPlaced))
 		{
 			if (target != null)
 			{
@@ -90,4 +91,17 @@ public class Turret : MonoBehaviour
 		Vector3 rotation = Quaternion.Lerp(PartToRotate.transform.rotation, lookRotation, Time.deltaTime * TurnSpeed).eulerAngles;
 		PartToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 	}
+
+    public bool CheckCell(CellObject cell)
+    {
+		if (cell.Value == null)
+			return true;
+		else
+			return false;
+    }
+
+    public void PlaceIt()
+    {
+		wasPlaced = true;
+    }
 }
