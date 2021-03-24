@@ -58,4 +58,9 @@ public class UIState : MonoBehaviour
             gameState.EndGamePause();
         }
     }
+
+    public void OnToolClick()
+    {
+
+    }
 }
