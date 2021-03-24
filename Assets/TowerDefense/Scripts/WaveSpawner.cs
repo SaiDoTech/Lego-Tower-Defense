@@ -11,16 +11,13 @@ public class WaveSpawner : MonoBehaviour
     private Transform spawnTransform;
     public float countDown = 2f;
     private int waveIndx = 1;
-    
-
-    void Start()
-    {
-        spawnTransform = MapCreator.PathPoints[0];
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (spawnTransform == null)
+            spawnTransform = MapCreator.PathPoints[0];
+
         if ((GameState.IsGameStarted) && (!GameState.IsGameOnPause))
         {
             if (countDown <= 0f)

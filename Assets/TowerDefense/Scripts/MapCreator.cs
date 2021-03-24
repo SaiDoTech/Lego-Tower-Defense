@@ -32,12 +32,6 @@ public class MapCreator : MonoBehaviour
         CreateNewMap();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CreateNewMap()
     {
         // If map was generated earlier - destroy it.
