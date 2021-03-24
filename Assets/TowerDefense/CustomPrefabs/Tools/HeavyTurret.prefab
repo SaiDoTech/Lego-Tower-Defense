@@ -6645,7 +6645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6910808980612651731}
-  - component: {fileID: -8718360046434964507}
+  - component: {fileID: 2652521120551427944}
   m_Layer: 0
   m_Name: HeavyTurret
   m_TagString: MapTool
@@ -6661,7 +6661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910808980612651728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6910808981600404872}
@@ -6669,7 +6669,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8718360046434964507
+--- !u!114 &2652521120551427944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6678,15 +6678,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6910808980612651728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b6e4f3efeaf9e4996641feeabd9d44, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f13e9732666e2845907eaab5dc12ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 17
+  Range: 14
   TurnSpeed: 10
+  fireRate: 1.1
+  PartToRotate: {fileID: 6910808981600404873}
   enemyTag: Enemy
-  fireRate: 0.5
-  bullet: {fileID: 846684954938063057, guid: 3135de219697a2c40a7afc89ac4f1d0e, type: 3}
-  firePoint: {fileID: 2458287988156898406}
+  bullet: {fileID: 846684954938063057, guid: 19a53eaa58e965841a043d1e207a8e20, type: 3}
+  firePoint:
+  - {fileID: 2458287988156898406}
 --- !u!1 &6910808980616171635
 GameObject:
   m_ObjectHideFlags: 0
