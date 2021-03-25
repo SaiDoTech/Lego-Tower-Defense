@@ -6661,7 +6661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910808980612651728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6910808981600404872}
@@ -6681,10 +6681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f13e9732666e2845907eaab5dc12ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wasPlaced: 0
   Range: 14
   TurnSpeed: 10
   fireRate: 1.1
-  PartToRotate: {fileID: 6910808981600404873}
+  PartToRotate: {fileID: 6910808980612651728}
   enemyTag: Enemy
   bullet: {fileID: 846684954938063057, guid: 19a53eaa58e965841a043d1e207a8e20, type: 3}
   firePoint:

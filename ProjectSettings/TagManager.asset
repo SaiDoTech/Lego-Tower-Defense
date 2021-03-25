@@ -7,10 +7,10 @@ TagManager:
   - Projectile
   - TutorialRequirement
   - Enemy
-  - PathControll
   - MapTool
   - RoadTool
   - Cell
+  - Road
   layers:
   - Default
   - TransparentFX

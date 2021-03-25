@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour, ICanBePlaced
 {
-	// IF THIS FIELD IS PRIVATE - DOESN'T WORK
-	public bool wasPlaced;
+	public bool wasPlaced = false;
 
 	public float Range = 14.0f;
 	public float TurnSpeed = 10.0f;
@@ -22,7 +21,7 @@ public class Turret : MonoBehaviour, ICanBePlaced
 	public Transform[] firePoint = new Transform[2];
 	private int shooted = 0;
 
-	private void Start()
+    private void Start()
 	{
 		InvokeRepeating("UpdateTarget", 0f, 0.5f);
 	}
@@ -100,7 +99,7 @@ public class Turret : MonoBehaviour, ICanBePlaced
 			return false;
     }
 
-    public void PlaceIt()
+    public void PlaceTool()
     {
 		wasPlaced = true;
     }

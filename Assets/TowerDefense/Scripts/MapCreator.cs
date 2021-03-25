@@ -100,7 +100,7 @@ public class MapCreator : MonoBehaviour
                 }
                 else
                 {
-                    var temp = Instantiate(map[i, j].Value, new Vector3(i * 6.4f, 0, j * 6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
+                    var temp = Instantiate(map[i, j].Value, new Vector3(i * 6.4f, 0.2f, j * 6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
                     temp.transform.SetParent(map[i, j].transform);
                 }
             }

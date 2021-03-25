@@ -17,8 +17,6 @@ public class ToolBuilder : MonoBehaviour
     {
         ray = new Ray();
         mainCamera = Camera.main;
-
-        //generator = GetComponent<MapGenerator>();
     }
 
     private void Update()
@@ -29,7 +27,7 @@ public class ToolBuilder : MonoBehaviour
         hits = Physics.RaycastAll(ray);
         for (int i = 0; i < hits.Length; i++)
         {
-            if (hits[i].transform.gameObject.tag == "Cell")
+            if (hits[i].transform.gameObject.tag == CellTag)
             {
                 choosenCell = hits[i].transform.gameObject;
             }
@@ -37,7 +35,7 @@ public class ToolBuilder : MonoBehaviour
 
         if (flyingTool != null && choosenCell != null)
         {
-            flyingTool.transform.position = choosenCell.transform.position;
+            flyingTool.transform.position = choosenCell.transform.position + new Vector3(0, 0.2f, 0);
         }
 
         if ((flyingTool != null) && (Input.GetMouseButtonDown(0)))
@@ -48,10 +46,10 @@ public class ToolBuilder : MonoBehaviour
 
             if (intf.CheckCell(cell))
             {
-                intf.PlaceIt();
+                intf.PlaceTool();
                 cell.Value = flyingTool;
 
-                Instantiate(flyingTool, cell.transform.position, new Quaternion());
+                Instantiate(flyingTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
                 Destroy(flyingTool);
             }
 
