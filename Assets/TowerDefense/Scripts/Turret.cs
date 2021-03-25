@@ -12,10 +12,9 @@ public class Turret : MonoBehaviour, ICanBePlaced
 	private float fireCountdown = 0f;
 
 	public GameObject PartToRotate;
-	public string enemyTag = "Enemy";
+	public string EnemyTag = "Enemy";
 
 	private Transform target;
-	private Enemy targetEnemy;
 
 	public GameObject bullet;
 	public Transform[] firePoint = new Transform[2];
@@ -59,7 +58,7 @@ public class Turret : MonoBehaviour, ICanBePlaced
 
 	private void UpdateTarget()
 	{
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
 		float shortestDistance = Mathf.Infinity;
 		GameObject nearestEnemy = null;
 		foreach (GameObject enemy in enemies)
@@ -75,7 +74,6 @@ public class Turret : MonoBehaviour, ICanBePlaced
 		if (nearestEnemy != null && shortestDistance <= Range)
 		{
 			target = nearestEnemy.transform;
-			targetEnemy = nearestEnemy.GetComponent<Enemy>();
 		}
 		else
 		{
@@ -91,10 +89,13 @@ public class Turret : MonoBehaviour, ICanBePlaced
 		PartToRotate.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 	}
 
-    public bool CheckCell(CellObject cell)
+    public bool CheckCell(CellObject cell, GameObject tool)
     {
 		if (cell.Value == null)
+		{
+			cell.Value = tool;
 			return true;
+		}
 		else
 			return false;
     }

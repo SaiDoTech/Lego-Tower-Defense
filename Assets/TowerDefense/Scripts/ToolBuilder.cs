@@ -27,7 +27,7 @@ public class ToolBuilder : MonoBehaviour
         hits = Physics.RaycastAll(ray);
         for (int i = 0; i < hits.Length; i++)
         {
-            if (hits[i].transform.gameObject.tag == CellTag)
+            if (hits[i].transform.gameObject.CompareTag(CellTag))
             {
                 choosenCell = hits[i].transform.gameObject;
             }
@@ -44,10 +44,9 @@ public class ToolBuilder : MonoBehaviour
             var intf = flyingTool.GetComponent<ICanBePlaced>();
             var cell = choosenCell.GetComponent<CellObject>();
 
-            if (intf.CheckCell(cell))
+            if (intf.CheckCell(cell, flyingTool))
             {
                 intf.PlaceTool();
-                cell.Value = flyingTool;
 
                 Instantiate(flyingTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
                 Destroy(flyingTool);

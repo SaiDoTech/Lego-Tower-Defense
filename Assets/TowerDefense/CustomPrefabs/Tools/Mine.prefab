@@ -7281,7 +7281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wasPlaced: 0
+  Range: 3.2
   RoadTag: Road
+  EnemyTag: Enemy
 --- !u!1 &5652449573202748618
 GameObject:
   m_ObjectHideFlags: 0

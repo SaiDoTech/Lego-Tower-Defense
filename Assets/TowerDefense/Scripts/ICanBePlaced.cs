@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ICanBePlaced
 {
-    bool CheckCell(CellObject cell);
+    bool CheckCell(CellObject cell, GameObject tool = null);
     void PlaceTool();
 }
