@@ -19,7 +19,6 @@ public class MapCreator : MonoBehaviour
     public GameObject RoadObject;
     public GameObject StartObject;
     public GameObject FinishObject;
-    public GameObject GroundObject;
 
     [Header("Environment Objects")]
     public EnvironmentConstructor environmentConstructor;
@@ -81,10 +80,12 @@ public class MapCreator : MonoBehaviour
 
     private void DestroyCells()
     {
-        foreach (var cell in map)
+        var childCount = transform.childCount;
+        for (int i = 0; i < childCount; i++)
         {
-            Destroy(cell.gameObject);
+            Destroy(gameObject.transform.GetChild(i).gameObject);
         }
+
     }
 
     private void DrawMap()
@@ -93,15 +94,10 @@ public class MapCreator : MonoBehaviour
         {
             for (int j = 0; j < map.GetLength(1); j++)
             {
-                if (map[i, j].Value == null)
-                {
-                    var temp = Instantiate(GroundObject, new Vector3(i*6.4f, 0, j*6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
-                    temp.transform.SetParent(map[i, j].transform);
-                }
-                else
+                if (map[i, j].Value != null)
                 {
                     var temp = Instantiate(map[i, j].Value, new Vector3(i * 6.4f, 0.2f, j * 6.4f), Quaternion.Euler(0, map[i, j].NeedYRotation, 0));
-                    temp.transform.SetParent(map[i, j].transform);
+                    temp.transform.SetParent(gameObject.transform);
                 }
             }
         }
