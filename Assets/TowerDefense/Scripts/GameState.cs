@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
@@ -25,11 +26,11 @@ public class GameState : MonoBehaviour
     public void FinishGame()
     {
         if (IsGameStarted)
-        { 
-
-
+        {
             IsGameStarted = false;
             IsGameOnPause = false;
+
+            SceneManager.LoadScene(0);
         }
     }
 

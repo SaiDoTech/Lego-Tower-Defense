@@ -9,9 +9,16 @@ public class UIState : MonoBehaviour
     public Button FinishGameBt;
     public Button PauseBt;
 
+    public Sprite PauseSpr;
+    public Sprite PlaySpr;
+    private GameObject pausePanel;
+
     private void Start()
     {
         FinishGameBt.interactable = false;
+
+        pausePanel = PauseBt.transform.GetChild(0).gameObject;
+        pausePanel.GetComponent<Image>().sprite = PauseSpr;
     }
 
     public void OnGenerateNewMap()
@@ -47,13 +54,13 @@ public class UIState : MonoBehaviour
     {
         if ((GameState.IsGameStarted) && (!GameState.IsGameOnPause))
         {
-
+            pausePanel.GetComponent<Image>().sprite = PlaySpr;
 
             gameState.SetGamePause();
         }
         else if ((GameState.IsGameStarted) && (GameState.IsGameOnPause))
         {
-
+            pausePanel.GetComponent<Image>().sprite = PauseSpr;
 
             gameState.EndGamePause();
         }
