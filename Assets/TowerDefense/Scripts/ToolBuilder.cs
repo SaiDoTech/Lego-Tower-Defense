@@ -13,6 +13,8 @@ public class ToolBuilder : MonoBehaviour
     private static GameObject choosenCell;
     private static GameObject flyingTool;
 
+    private bool buildLock = true;
+
     void Start()
     {
         ray = new Ray();
@@ -40,18 +42,29 @@ public class ToolBuilder : MonoBehaviour
 
         if ((flyingTool != null) && (Input.GetMouseButtonDown(0)))
         {
-            // Check Can Be Placed?
-            var intf = flyingTool.GetComponent<ICanBePlaced>();
-            var cell = choosenCell.GetComponent<CellObject>();
-
-            if (intf.CheckCell(cell, flyingTool))
+            if (!buildLock)
             {
-                intf.PlaceTool();
+                // Check Can Be Placed?
+                var intf = flyingTool.GetComponent<ICanBePlaced>();
 
-                Instantiate(flyingTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
-                Destroy(flyingTool);
+                if (choosenCell != null)
+                {
+                    var cell = choosenCell.GetComponent<CellObject>();
+
+                    if (intf.CheckCell(cell, flyingTool))
+                    {
+                        intf.PlaceTool();
+
+                        Instantiate(flyingTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
+
+                        Destroy(flyingTool);
+                    }
+                }
             }
-
+            else
+            {
+                buildLock = false;
+            }
         }
 
         if ((flyingTool != null) && (Input.GetMouseButtonDown(1)))
@@ -62,6 +75,11 @@ public class ToolBuilder : MonoBehaviour
 
     public void SetFlyingTool(GameObject tool)
     {
+        choosenCell = null;
+        Destroy(flyingTool);
+
+        buildLock = true;
+
         if (tool != null)
         {
             flyingTool = Instantiate(tool);
