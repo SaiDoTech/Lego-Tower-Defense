@@ -10,10 +10,9 @@ public class ToolBuilder : MonoBehaviour
     private RaycastHit[] hits;
     private Ray ray;
 
-    private static GameObject choosenCell;
+    private static GameObject choosedCell;
+    private static GameObject choosedTool;
     private static GameObject flyingTool;
-
-    private bool buildLock = true;
 
     void Start()
     {
@@ -31,57 +30,53 @@ public class ToolBuilder : MonoBehaviour
         {
             if (hits[i].transform.gameObject.CompareTag(CellTag))
             {
-                choosenCell = hits[i].transform.gameObject;
+                choosedCell = hits[i].transform.gameObject;
             }
         }
 
-        if (flyingTool != null && choosenCell != null)
+        if (flyingTool != null && choosedCell != null)
         {
-            flyingTool.transform.position = choosenCell.transform.position + new Vector3(0, 0.2f, 0);
+            flyingTool.transform.position = choosedCell.transform.position + new Vector3(0, 0.2f, 0);
         }
 
         if ((flyingTool != null) && (Input.GetMouseButtonDown(0)))
         {
-            if (!buildLock)
-            {
-                // Check Can Be Placed?
-                var intf = flyingTool.GetComponent<ICanBePlaced>();
+            // Check Can Be Placed?
+            var intf = choosedTool.GetComponent<ICanBePlaced>();
 
-                if (choosenCell != null)
+            if (choosedCell != null)
+            {
+                var cell = choosedCell.GetComponent<CellObject>();
+
+                if (intf.CheckCell(cell, choosedTool))
                 {
-                    var cell = choosenCell.GetComponent<CellObject>();
+                    intf.PlaceTool();
+                    Instantiate(choosedTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
+                    Debug.Log("Placed");
 
-                    if (intf.CheckCell(cell, flyingTool))
-                    {
-                        intf.PlaceTool();
-
-                        Instantiate(flyingTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
-
-                        Destroy(flyingTool);
-                    }
+                    Destroy(flyingTool);
+                    choosedTool = null;
                 }
-            }
-            else
-            {
-                buildLock = false;
             }
         }
 
         if ((flyingTool != null) && (Input.GetMouseButtonDown(1)))
         {
             Destroy(flyingTool);
+            choosedTool = null;
         }
     }
 
     public void SetFlyingTool(GameObject tool)
     {
-        choosenCell = null;
+        choosedCell = null;
+        choosedTool = null;
         Destroy(flyingTool);
-
-        buildLock = true;
+        flyingTool = null;
 
         if (tool != null)
         {
+            choosedTool = tool;
             flyingTool = Instantiate(tool);
         }
     }
