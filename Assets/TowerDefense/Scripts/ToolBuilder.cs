@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ToolBuilder : MonoBehaviour
 {
@@ -11,8 +9,8 @@ public class ToolBuilder : MonoBehaviour
     private Ray ray;
 
     private static GameObject choosedCell;
-    private static GameObject choosedTool;
     private static GameObject flyingTool;
+    private static ICanBePlaced canBePlaced;
 
     void Start()
     {
@@ -31,31 +29,32 @@ public class ToolBuilder : MonoBehaviour
             if (hits[i].transform.gameObject.CompareTag(CellTag))
             {
                 choosedCell = hits[i].transform.gameObject;
+
+                if (flyingTool != null)
+                {
+                    flyingTool.transform.position = choosedCell.transform.position + new Vector3(0, 0.2f, 0);
+                }
             }
         }
 
-        if (flyingTool != null && choosedCell != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            flyingTool.transform.position = choosedCell.transform.position + new Vector3(0, 0.2f, 0);
-        }
-
-        if ((flyingTool != null) && (Input.GetMouseButtonDown(0)))
-        {
-            // Check Can Be Placed?
-            var intf = choosedTool.GetComponent<ICanBePlaced>();
-
             if (choosedCell != null)
             {
                 var cell = choosedCell.GetComponent<CellObject>();
 
-                if (intf.CheckCell(cell, choosedTool))
+                if ((canBePlaced != null) && (flyingTool != null))
                 {
-                    intf.PlaceTool();
-                    Instantiate(choosedTool, cell.transform.position + new Vector3(0, 0.2f, 0), new Quaternion());
-                    Debug.Log("Placed");
+                    if (canBePlaced.CheckCell(cell, flyingTool))
+                    {
+                        canBePlaced.PlaceTool();
+                        Debug.Log("Placed");
 
-                    Destroy(flyingTool);
-                    choosedTool = null;
+                        flyingTool = null;
+                        canBePlaced = null;
+
+                        GameState.IsBuildModActive = false;
+                    }
                 }
             }
         }
@@ -63,21 +62,23 @@ public class ToolBuilder : MonoBehaviour
         if ((flyingTool != null) && (Input.GetMouseButtonDown(1)))
         {
             Destroy(flyingTool);
-            choosedTool = null;
+            flyingTool = null;
+            canBePlaced = null;
+
+            GameState.IsBuildModActive = false;
         }
     }
 
     public void SetFlyingTool(GameObject tool)
     {
-        choosedCell = null;
-        choosedTool = null;
         Destroy(flyingTool);
         flyingTool = null;
+        canBePlaced = null;
 
         if (tool != null)
         {
-            choosedTool = tool;
             flyingTool = Instantiate(tool);
+            canBePlaced = flyingTool.GetComponent<ICanBePlaced>();
         }
     }
 }

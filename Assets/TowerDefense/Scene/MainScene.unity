@@ -726,6 +726,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1008342262}
+        m_MethodName: SetToolBt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &575488651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +938,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 6099288077334835877, guid: aa663f549cc4b1b47b86209dcb5b0274,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1008342262}
+        m_MethodName: SetToolBt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1502,6 +1524,9 @@ MonoBehaviour:
   StartGameBt: {fileID: 820134057}
   FinishGameBt: {fileID: 167715284}
   PauseBt: {fileID: 798989035}
+  Tool1: {fileID: 575488650}
+  Tool2: {fileID: 741765733}
+  Tool3: {fileID: 2107023839}
   PauseSpr: {fileID: 21300000, guid: 794557847917a6d448fe2cbfda515026, type: 3}
   PlaySpr: {fileID: 21300000, guid: b105e9bc99d19d04983109788938e627, type: 3}
 --- !u!1 &1079620492
@@ -2806,6 +2831,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 6910808980612651728, guid: 4547137403dc17344ba9ff5e50352caa,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1008342262}
+        m_MethodName: SetToolBt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -6686,7 +6686,7 @@ MonoBehaviour:
   TurnSpeed: 10
   fireRate: 1.1
   PartToRotate: {fileID: 6910808980612651728}
-  enemyTag: Enemy
+  EnemyTag: Enemy
   bullet: {fileID: 846684954938063057, guid: 19a53eaa58e965841a043d1e207a8e20, type: 3}
   firePoint:
   - {fileID: 2458287988156898406}

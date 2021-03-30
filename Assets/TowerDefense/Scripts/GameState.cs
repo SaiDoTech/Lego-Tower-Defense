@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
 {
     public static bool IsGameStarted;
     public static bool IsGameOnPause;
+    public static bool IsBuildModActive;
 
     private static MapCreator mapCreator;
 

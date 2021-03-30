@@ -9,6 +9,10 @@ public class UIState : MonoBehaviour
     public Button FinishGameBt;
     public Button PauseBt;
 
+    public Button Tool1;
+    public Button Tool2;
+    public Button Tool3;
+
     public Sprite PauseSpr;
     public Sprite PlaySpr;
     private GameObject pausePanel;
@@ -19,6 +23,18 @@ public class UIState : MonoBehaviour
 
         pausePanel = PauseBt.transform.GetChild(0).gameObject;
         pausePanel.GetComponent<Image>().sprite = PauseSpr;
+    }
+
+    private void Update()
+    {
+        if (GameState.IsBuildModActive)
+        {
+            SetTolBtInteractable(false);
+        }
+        else
+        {
+            SetTolBtInteractable(true);
+        }
     }
 
     public void OnGenerateNewMap()
@@ -66,8 +82,15 @@ public class UIState : MonoBehaviour
         }
     }
 
-    public void OnToolClick()
+    public void SetToolBt()
     {
+        GameState.IsBuildModActive = true;
+    }
 
+    private void SetTolBtInteractable(bool value)
+    {
+        Tool1.interactable = value;
+        Tool2.interactable = value;
+        Tool3.interactable = value;
     }
 }
